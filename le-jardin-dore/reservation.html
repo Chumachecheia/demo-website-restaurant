@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js')</script>
+
+  <!-- ===== SEO ===== -->
+  <title>Réservation — Le Jardin Doré, Genève</title>
+  <meta name="description" content="Réservez votre table au Jardin Doré, restaurant gastronomique à Genève. Formulaire de réservation en ligne, ou par téléphone et WhatsApp au +41 22 345 67 89.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://www.lejardindore.ch/reservation.html">
+  <meta property="og:title" content="Réservation — Le Jardin Doré, Genève">
+  <meta property="og:description" content="Réservez votre table en ligne ou par téléphone au restaurant Le Jardin Doré, sur les quais de Genève.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.lejardindore.ch/reservation.html">
+  <meta property="og:image" content="https://www.lejardindore.ch/assets/img/og-image.jpg">
+  <meta property="og:locale" content="fr_CH">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Prompt:ital,wght@0,200..700;1,200..700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Site styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div id="preloader"><div class="mark">JD</div></div>
+
+  <div class="vmark">Le Jardin Doré · Genève</div>
+
+  <header id="site-header">
+    <a href="/index.html" class="logo">Le Jardin Doré<span>Restaurant · Genève</span></a>
+    <nav id="nav">
+      <ul>
+        <li><a href="/index.html">Accueil</a><img class="preview" src="https://picsum.photos/seed/jardindore-nav-home/320/200" alt="" loading="lazy"></li>
+        <li><a href="/about.html">À propos</a><img class="preview" src="https://picsum.photos/seed/jardindore-nav-about/320/200" alt="" loading="lazy"></li>
+        <li><a href="/menu.html">Menu</a><img class="preview" src="https://picsum.photos/seed/jardindore-nav-menu/320/200" alt="" loading="lazy"></li>
+        <li><a href="/menudujour.html">Menu du jour</a><img class="preview" src="https://picsum.photos/seed/jardindore-nav-menudujour/320/200" alt="" loading="lazy"></li>
+        <li><a href="/contact.html">Contact</a><img class="preview" src="https://picsum.photos/seed/jardindore-nav-contact/320/200" alt="" loading="lazy"></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="/reservation.html" class="btn">Réservation</a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" style="background-image:url('https://picsum.photos/seed/jardindore-reservation-hero/1920/1080')">
+    <div class="overlay"></div>
+    <div class="content">
+      <span class="kicker">Votre table vous attend</span>
+      <h1>Réservation</h1>
+      <div class="breadcrumb"><a href="/index.html">Accueil</a> / Réservation</div>
+    </div>
+  </section>
+
+  <!-- RESERVATION FORM -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-intro reveal">
+        <span class="kicker">Réservation en ligne</span>
+        <h2>Réservez votre table</h2>
+        <p>Pour les groupes de plus de 8 personnes ou les demandes de dernière minute, merci de nous appeler directement au <a href="tel:+41223456789" style="color:var(--gold)">+41 22 345 67 89</a> ou de nous écrire sur <a href="https://wa.me/41223456789" target="_blank" rel="noopener" style="color:var(--gold)">WhatsApp</a>.</p>
+      </div>
+
+      <form id="resa-form" class="resa reveal" action="#" method="post">
+        <div>
+          <label for="r-name">Nom complet</label>
+          <input type="text" id="r-name" name="name" placeholder="Votre nom" required>
+        </div>
+        <div>
+          <label for="r-phone">Téléphone</label>
+          <input type="tel" id="r-phone" name="phone" placeholder="+41 79 000 00 00" required>
+        </div>
+        <div>
+          <label for="r-email">E-mail</label>
+          <input type="email" id="r-email" name="email" placeholder="vous@exemple.com" required>
+        </div>
+        <div>
+          <label for="r-guests">Nombre de personnes</label>
+          <select id="r-guests" name="guests" required>
+            <option value="">Sélectionner</option>
+            <option>1 personne</option>
+            <option>2 personnes</option>
+            <option>3 personnes</option>
+            <option>4 personnes</option>
+            <option>5 personnes</option>
+            <option>6 et plus</option>
+          </select>
+        </div>
+        <div>
+          <label for="r-date">Date</label>
+          <input type="date" id="r-date" name="date" required>
+        </div>
+        <div>
+          <label for="r-time">Heure</label>
+          <input type="time" id="r-time" name="time" required>
+        </div>
+        <div class="full">
+          <label for="r-notes">Remarques (allergies, occasion spéciale…)</label>
+          <textarea id="r-notes" name="notes" placeholder="Ex : allergie aux fruits à coque, anniversaire, table en terrasse…"></textarea>
+        </div>
+        <button class="btn full" type="submit">Envoyer la demande de réservation</button>
+        <p id="resa-note" class="resa-note full" hidden>Merci ! Votre demande a bien été envoyée. Notre équipe la confirmera par téléphone ou e-mail dans les plus brefs délais.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- HOURS REMINDER -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section-intro reveal"><span class="kicker">Horaires d'ouverture</span><h2>Quand venir</h2></div>
+      <div class="hours-table reveal">
+        <div class="hours-row"><span class="day">Lundi</span><span class="time">Fermé</span></div>
+        <div class="hours-row"><span class="day">Mardi – Samedi</span><span class="time">12h00–14h00 · 19h00–22h30</span></div>
+        <div class="hours-row"><span class="day">Dimanche</span><span class="time">12h00–14h30</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot-grid">
+      <div>
+        <h4>Le Jardin Doré</h4>
+        <p>Cuisine française gastronomique au bord du Léman, dans un cadre élégant et intimiste au cœur de Genève.</p>
+        <div class="social">
+          <a href="https://wa.me/41223456789" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://instagram.com/lejardindore.geneve" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://facebook.com/lejardindore.geneve" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <nav><ul>
+          <li><a href="/index.html">Accueil</a></li>
+          <li><a href="/about.html">À propos</a></li>
+          <li><a href="/menu.html">Menu</a></li>
+          <li><a href="/menudujour.html">Menu du jour</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/reservation.html">Réservation</a></li>
+        </ul></nav>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="https://maps.google.com/?q=12+Quai+du+Mont-Blanc+1201+Geneve" target="_blank" rel="noopener">12 Quai du Mont-Blanc<br>1201 Genève, Suisse</a></p>
+        <p><a href="tel:+41223456789">+41 22 345 67 89</a></p>
+        <p><a href="mailto:contact@lejardindore.ch">contact@lejardindore.ch</a></p>
+      </div>
+      <div>
+        <h4>Horaires</h4>
+        <p>Mar – Sam<br>12h00–14h00 · 19h00–22h30</p>
+        <p>Dimanche<br>12h00–14h30</p>
+        <p>Lundi : Fermé</p>
+      </div>
+    </div>
+    <div class="foot-bottom">© <span id="yr"></span> Le Jardin Doré — Tous droits réservés. Site réalisé par <a href="https://fernanvibe.com" target="_blank" rel="noopener">FernanVibeCoding</a>.</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

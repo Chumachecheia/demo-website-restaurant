@@ -1,0 +1,290 @@
+/* ===========================================================
+   Le Jardin Doré — Restaurant gastronomique, Genève
+   Design system: dark teal canvas, single warm-gold accent,
+   Baskervville (display) + Prompt (body)
+   =========================================================== */
+
+:root{
+  --gold:#FFD28D;
+  --heading:#FFD28D;
+  --body-color:#C8C8C8;
+  --bg:#040D10;
+  --bg-2:#091E24;
+  --border:#4F4836;
+  --brown:#ba9774;
+  --brown-dark:#635542;
+  --white:#fff;
+  --black:#000;
+
+  --font-display:"Baskervville", serif;
+  --font-body:"Prompt", sans-serif;
+
+  --ease:.3s ease;
+  --ease-md:.4s ease;
+  --ease-reveal:.8s ease;
+  --ease-spring:.6s cubic-bezier(0.7,-0.56,0.27,1.6);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  font-size:18px;
+  line-height:1.6;
+  color:var(--body-color);
+  background:var(--bg);
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--heading);font-weight:400;line-height:1.15}
+p{margin-bottom:14px}
+a{color:inherit;text-decoration:none;transition:color var(--ease)}
+a:hover{color:var(--gold)}
+img{max-width:100%;display:block}
+ul{list-style:none}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.kicker{
+  font-family:var(--font-body);text-transform:uppercase;letter-spacing:3px;
+  font-size:13px;color:var(--gold);display:inline-block;margin-bottom:14px;
+}
+.section{padding:120px 0}
+.section--alt{background:var(--bg-2)}
+.section-intro{text-align:center;max-width:680px;margin:0 auto 64px}
+.section-intro h2{font-size:clamp(30px,5vw,48px)}
+.section-intro p{margin-top:14px}
+
+.btn{
+  display:inline-block;font-family:var(--font-body);text-transform:uppercase;
+  letter-spacing:2px;font-size:13px;color:var(--gold);
+  border:1px solid var(--gold);padding:14px 30px;border-radius:2px;
+  transition:all var(--ease-md);background:transparent;cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.btn:hover{background:var(--gold);color:var(--bg)}
+.btn--ghost{border-color:var(--border);color:var(--body-color)}
+.btn--ghost:hover{background:var(--brown-dark);color:var(--white);border-color:var(--brown-dark)}
+
+/* ===== Preloader ===== */
+#preloader{
+  position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;
+  justify-content:center;z-index:9999;transition:opacity .6s ease;
+}
+#preloader .mark{
+  font-family:var(--font-display);font-size:34px;letter-spacing:6px;color:var(--gold);
+  animation:lettersLoading 3s infinite;
+}
+@keyframes lettersLoading{0%,75%,100%{opacity:.25}40%{opacity:1}}
+
+/* ===== Header ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;
+  justify-content:space-between;padding:26px 40px;transition:all var(--ease-md);
+  border-bottom:1px solid transparent;
+}
+header.scrolled{background:var(--bg);padding:16px 40px;border-bottom-color:var(--border)}
+header .logo{font-family:var(--font-display);font-size:26px;color:var(--gold);letter-spacing:1px}
+header .logo span{color:var(--body-color);font-size:12px;letter-spacing:3px;display:block;
+  text-transform:uppercase;font-family:var(--font-body);margin-top:2px}
+header nav ul{display:flex;gap:34px;align-items:center}
+header nav a{font-family:var(--font-body);text-transform:uppercase;letter-spacing:2px;font-size:13px;position:relative}
+header nav a.active{color:var(--gold)}
+
+/* hover-preview nav */
+header nav li{position:relative}
+header nav li .preview{
+  position:absolute;top:140%;left:50%;transform:translateX(-50%) scale(.9);
+  width:160px;height:100px;object-fit:cover;opacity:0;pointer-events:none;
+  border:1px solid var(--border);transition:all var(--ease);border-radius:2px;
+}
+header nav li:hover .preview{opacity:1;transform:translateX(-50%) scale(1)}
+
+.header-actions{display:flex;align-items:center;gap:20px}
+.nav-toggle{display:none;background:none;border:0;color:var(--gold);font-size:22px;cursor:pointer}
+
+/* ===== Vertical wordmark ===== */
+.vmark{
+  position:fixed;left:18px;top:50%;transform:translateY(-50%) rotate(180deg);
+  writing-mode:vertical-rl;letter-spacing:8px;text-transform:uppercase;
+  font-size:12px;color:var(--brown);z-index:800;
+}
+
+/* ===== Hero (home) ===== */
+.hero{height:100vh;position:relative}
+.hero .swiper,.hero .swiper-slide{height:100vh}
+.hero .slide-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1)}
+.swiper-slide-active .slide-bg{transform:scale(1.12);transition:transform 6s ease}
+.hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,13,16,.5),rgba(4,13,16,.85))}
+.hero .content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px}
+.hero h1{font-size:clamp(40px,8vw,86px);color:var(--white)}
+.hero h1 span{color:var(--gold);display:block;font-style:italic}
+.hero .content p{max-width:520px;margin:18px auto 0;color:var(--body-color)}
+.hero .btn{margin-top:30px}
+.swiper-pagination-bullet{background:var(--gold);opacity:.4}
+.swiper-pagination-bullet-active{opacity:1}
+
+/* ===== Page hero (subpages) ===== */
+.page-hero{
+  height:55vh;min-height:380px;position:relative;display:flex;align-items:center;
+  justify-content:center;text-align:center;background-size:cover;background-position:center;
+}
+.page-hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,13,16,.6),rgba(4,13,16,.92))}
+.page-hero .content{position:relative;z-index:2;padding:0 24px}
+.page-hero h1{font-size:clamp(36px,6vw,64px);color:var(--white)}
+.breadcrumb{font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-top:14px;color:var(--brown)}
+.breadcrumb a{color:var(--gold)}
+
+/* ===== Marquee ===== */
+.marquee{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:18px 0}
+.marquee .track{display:flex;gap:50px;white-space:nowrap;width:max-content;animation:slideLeft 30s linear infinite}
+.marquee span{font-family:var(--font-display);font-size:22px;color:var(--brown);letter-spacing:2px;font-style:italic}
+.marquee span::after{content:"\2022";margin-left:50px;color:var(--gold);font-style:normal}
+@keyframes slideLeft{to{transform:translateX(-50%)}}
+
+/* ===== Menu ===== */
+.menu-cat{margin-bottom:64px}
+.menu-cat:last-child{margin-bottom:0}
+.menu-cat h3{font-size:clamp(24px,3vw,32px);text-align:center;margin-bottom:8px}
+.menu-cat .menu-cat-sub{text-align:center;color:var(--brown);font-size:14px;font-style:italic;margin-bottom:36px}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 60px}
+.menu-item__head{display:flex;align-items:baseline;gap:12px}
+.menu-item__name{font-size:21px;color:var(--white);white-space:nowrap}
+.menu-item__lead{flex:1;border-bottom:1px dotted var(--border);transform:translateY(-4px)}
+.menu-item__price{color:var(--gold);font-family:var(--font-body);font-weight:600;white-space:nowrap}
+.menu-item__desc{font-size:15px;color:var(--body-color);margin-top:6px;margin-bottom:0}
+
+/* Wine list */
+.wine-list{max-width:760px;margin:0 auto}
+.wine-cat{margin-bottom:40px}
+.wine-cat:last-child{margin-bottom:0}
+.wine-cat h4{font-size:20px;color:var(--brown);margin-bottom:16px;text-transform:uppercase;letter-spacing:2px;font-family:var(--font-body);font-weight:500}
+.wine-row{display:flex;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.wine-row:last-child{border-bottom:none}
+.wine-row .name{font-family:var(--font-display);font-size:19px;color:var(--white)}
+.wine-row .lead{flex:1;border-bottom:1px dotted var(--border);transform:translateY(-4px)}
+.wine-row .price{color:var(--gold);font-weight:600;white-space:nowrap;font-size:15px}
+
+/* ===== Split (specialties / about) ===== */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.split.reverse .stack{order:2}
+.split.reverse .text{order:1}
+.split .stack img{border:1px solid var(--border)}
+.split .stack img+img{margin-top:20px;margin-left:40px}
+.split .text p{margin-bottom:16px}
+
+/* ===== Stats / numbers ===== */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center;margin-top:70px}
+.stats .stat h3{font-size:clamp(32px,4vw,48px);color:var(--gold)}
+.stats .stat p{margin:6px 0 0;font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--brown)}
+
+/* ===== Team ===== */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:20px}
+.team-card{text-align:center}
+.team-card img{border-radius:2px;border:1px solid var(--border);aspect-ratio:3/4;object-fit:cover;width:100%}
+.team-card h4{margin-top:18px;font-size:22px}
+.team-card p{color:var(--brown);font-size:13px;text-transform:uppercase;letter-spacing:2px;margin-top:4px}
+
+/* ===== Gallery ===== */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.gallery-grid img{border:1px solid var(--border);aspect-ratio:1/1;object-fit:cover;transition:transform var(--ease-md)}
+.gallery-grid a{overflow:hidden;display:block;border:1px solid var(--border)}
+.gallery-grid a:hover img{transform:scale(1.06)}
+.gallery-grid img{border:none}
+
+/* ===== Testimonials ===== */
+.testi-card{
+  background:var(--bg-2);border:1px solid var(--border);border-radius:2px;
+  padding:46px 40px;text-align:center;max-width:720px;margin:0 auto;
+}
+.testi-card .fa-quote-left{color:var(--gold);font-size:28px;margin-bottom:18px}
+.testi-card p.quote{font-family:var(--font-display);font-size:22px;font-style:italic;color:var(--white);margin-bottom:24px}
+.testi-card .author{display:flex;align-items:center;justify-content:center;gap:14px}
+.testi-card .author img{width:50px;height:50px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
+.testi-card .author .name{color:var(--gold);font-size:15px}
+.testi-card .author .role{font-size:13px;color:var(--brown)}
+.testi-card .stars{color:var(--gold);margin-bottom:14px;font-size:14px}
+.testiSwiper{padding-bottom:50px}
+.testiSwiper .swiper-pagination{position:relative;margin-top:20px}
+
+/* ===== Opening hours ===== */
+.hours-table{max-width:560px;margin:0 auto;border:1px solid var(--border);border-radius:2px;overflow:hidden}
+.hours-row{display:flex;justify-content:space-between;padding:16px 28px;border-bottom:1px solid var(--border);font-family:var(--font-body)}
+.hours-row:last-child{border-bottom:none}
+.hours-row .day{color:var(--white);letter-spacing:1px}
+.hours-row .time{color:var(--gold)}
+.hours-row.closed .time{color:var(--brown-dark);font-style:italic}
+
+/* ===== Reservation form ===== */
+.resa{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:760px;margin:0 auto}
+.resa label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--brown);margin-bottom:8px}
+.resa input,.resa select,.resa textarea{
+  width:100%;background:var(--bg-2);border:1px solid var(--border);color:var(--body-color);
+  padding:14px 16px;font-family:var(--font-body);font-size:15px;border-radius:2px;
+  transition:border-color var(--ease);
+}
+.resa input:focus,.resa select:focus,.resa textarea:focus{outline:none;border-color:var(--gold)}
+.resa textarea{resize:vertical;min-height:110px}
+.resa .full{grid-column:1/-1}
+.resa-note{text-align:center;margin-top:30px;font-size:15px}
+
+/* ===== Contact ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contact-info .item{display:flex;gap:18px;margin-bottom:28px}
+.contact-info .item i{color:var(--gold);font-size:20px;margin-top:4px;width:24px;text-align:center}
+.contact-info .item h4{font-size:18px;color:var(--white);margin-bottom:4px;font-family:var(--font-body);font-weight:500;letter-spacing:1px;text-transform:uppercase;font-size:13px}
+.contact-info .item p{margin:0;color:var(--body-color)}
+.map-frame{border:1px solid var(--border);width:100%;height:340px;filter:grayscale(.4) invert(.92) contrast(.9);}
+
+/* ===== Footer ===== */
+footer{background:#020809;border-top:1px solid var(--border);padding:70px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+footer h4{color:var(--gold);margin-bottom:18px;font-size:20px}
+footer p{margin-bottom:8px;font-size:15px}
+footer .social{display:flex;gap:18px;font-size:18px;margin-top:14px}
+footer .social a{border:1px solid var(--border);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--ease)}
+footer .social a:hover{border-color:var(--gold);background:var(--gold);color:var(--bg)}
+footer nav ul{display:flex;flex-direction:column;gap:10px}
+.foot-bottom{border-top:1px solid var(--border);margin-top:50px;padding-top:24px;text-align:center;font-size:13px;color:var(--brown-dark)}
+
+/* ===== Scroll reveal =====
+   Hidden only when JS has run (html.js, set by an inline head script).
+   Without JS the content stays visible — no dependency on IntersectionObserver. */
+.reveal{transition:opacity var(--ease-reveal),transform var(--ease-reveal)}
+html.js .reveal{opacity:0;transform:translateY(30px)}
+html.js .reveal.in{opacity:1;transform:none}
+
+/* ===== Floating accent ===== */
+.float{animation:textupdown 4s ease-in-out infinite}
+@keyframes textupdown{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* ===== Responsive ===== */
+@media(max-width:1199px){
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:991px){
+  .menu-grid,.split,.foot-grid,.resa,.contact-grid,.gallery-grid,.team-grid{grid-template-columns:1fr}
+  .split .stack img+img{margin-left:0}
+  .split.reverse .stack,.split.reverse .text{order:initial}
+  header nav{
+    position:fixed;inset:0;background:var(--bg);flex-direction:column;display:none;
+  }
+  header nav.open{display:flex;align-items:center;justify-content:center;z-index:950}
+  header nav ul{flex-direction:column;text-align:center;gap:26px}
+  header nav li .preview{display:none}
+  header nav.open ~ .header-actions .btn{opacity:0;pointer-events:none}
+  .nav-toggle{display:block;position:relative;z-index:960}
+  .vmark{display:none}
+  .section{padding:80px 0}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:575px){
+  header{padding:20px}
+  header.scrolled{padding:14px 20px}
+  .resa{gap:16px}
+  .gallery-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto!important}
+  .swiper-slide-active .slide-bg{transform:none}
+  .reveal{opacity:1;transform:none;transition:none}
+}
